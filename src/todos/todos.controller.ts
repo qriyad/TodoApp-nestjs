@@ -23,7 +23,7 @@ export class TodosController {
   }
 
   @Patch('update/:id')
-  async update(@Param('id') id: number, @Body() updateTodoDto: CreateTodoDto) {
+  async update(@Param('id') id: number, @Body() updateTodoDto: UpdateTodoDto) {
     return this.todosService.update(id, updateTodoDto);
   }
 

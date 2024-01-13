@@ -24,7 +24,7 @@ export class TodosService {
       return this.todosRepository.findOneBy({ id });
     }
 
-    async update(id: number, updateTodoDto: CreateTodoDto): Promise<Todo> {
+    async update(id: number, updateTodoDto: UpdateTodoDto): Promise<Todo> {
       const todo = await this.todosRepository.findOneBy({ id });
       const updatedTodo = Object.assign(todo, updateTodoDto);
       return this.todosRepository.save(updatedTodo);
