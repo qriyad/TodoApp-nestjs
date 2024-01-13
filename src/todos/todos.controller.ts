@@ -6,29 +6,29 @@ import { UpdateTodoDto } from './dto/update-todo.dto';
 @Controller('todos')
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
-
-  @Post()
-  create(@Body() createTodoDto: CreateTodoDto) {
+  
+  @Post('createTodo')
+  async create(@Body() createTodoDto: CreateTodoDto) {
     return this.todosService.create(createTodoDto);
   }
-
-  @Get()
-  findAll() {
+  
+  @Get('findAll')
+  async findAll() {
     return this.todosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todosService.findOne(+id);
+  @Get('findOne/:id')
+  async findOne(@Param('id') id: number) {
+    return this.todosService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
-    return this.todosService.update(+id, updateTodoDto);
+  @Patch('update/:id')
+  async update(@Param('id') id: number, @Body() updateTodoDto: CreateTodoDto) {
+    return this.todosService.update(id, updateTodoDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todosService.remove(+id);
+  @Delete('remove/:id')
+  async remove(@Param('id') id: number) {
+    return this.todosService.remove(id);
   }
 }

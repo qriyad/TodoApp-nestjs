@@ -8,5 +8,11 @@ export class Todo {
     title: string;
 
     @Column()
-    completed: boolean;
+    description: string;
+
+    @Column({
+        type: 'text',
+        default: 'todo',
+    })
+    status: 'todo' | 'in progress' | 'completed';
 }
