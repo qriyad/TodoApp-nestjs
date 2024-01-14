@@ -5,6 +5,9 @@ export class Todo {
     id: number;
 
     @Column()
+    user_id: number;
+
+    @Column()
     title: string;
 
     @Column()

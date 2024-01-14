@@ -31,4 +31,9 @@ export class TodosController {
   async remove(@Param('id') id: number) {
     return this.todosService.remove(id);
   }
+
+  @Get('getTodosByUserId/:userId')
+  async getTodosByUserId(@Param('user_id') user_id: number) {
+    return this.todosService.getTodosByUserId(user_id);
+  }
 }

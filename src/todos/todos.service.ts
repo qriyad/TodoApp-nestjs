@@ -34,4 +34,7 @@ export class TodosService {
       const todo = await this.todosRepository.findOneBy({ id });
       return this.todosRepository.remove(todo);
     }
+    async getTodosByUserId(user_id: number): Promise<Todo[]> {
+      return this.todosRepository.findBy({ user_id });
+    }
 }
